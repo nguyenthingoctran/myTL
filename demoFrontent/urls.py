@@ -9,5 +9,6 @@ app_name = 'demoFrontent'
 
 urlpatterns = [
     url(r'^table/demo$', views.list_table),
-    url(r'^copy-to-clipboard$', views.copy_to_clipboard)
+    url(r'^copy-to-clipboard$', views.copy_to_clipboard),
+    url(r'^notification$', views.notification)
 ]

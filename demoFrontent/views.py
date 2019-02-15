@@ -7,3 +7,6 @@ def list_table(request):
 
 def copy_to_clipboard(request):
     return render(request, 'demoFrontent/page_copy_to_clipboard.html')
+
+def notification(request):
+    return render(request, 'demoFrontent/page_notification.html')
