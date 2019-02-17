@@ -258,6 +258,9 @@
                   </tbody>
                 </table>
               </div>
+              <div class="card-body" id="progress_box" class="progress-bar invisible mb-4">
+
+              </div>
               <div class="card-footer">
                   <div class="row">
                       <div col-1>
@@ -285,12 +288,15 @@
 
   function del(){
     var r = confirm("Are you sure?");
+    var loading_bar_id        = 'progress_box';
     
     if(r == true){
+      show_loading_bar(loading_bar_id)
+      set_disabled_buttons();
       var id = $('.checkbox:checked').map(function(){
         return $(this).val();
       }).get().join(' ');
-      alert(id);
+      alert(typeof(id));
     }
   }
 </script>
