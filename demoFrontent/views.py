@@ -10,3 +10,6 @@ def copy_to_clipboard(request):
 
 def notification(request):
     return render(request, 'demoFrontent/page_notification.html')
+
+def select2_single(request):
+    return render(request, 'demoFrontent/page_select_2.html')

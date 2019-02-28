@@ -1,0 +1,50 @@
+{% extends "main_layout.html" %}
+
+{% block breadcrumb %}
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Home</li>
+          <li class="breadcrumb-item">
+            <a href="#">Feature</a>
+          </li>
+          <li class="breadcrumb-item active">Select 2</li>
+        </ol>
+{% endblock  %}
+
+{% block content %}
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-edit"></i> Select 2
+            </div>
+
+            <div class="card-body">
+                
+                    <label>Modern Select</label>
+                    <select class="form-control select2-single" id="select2-1">
+                        <option>Option 1</option>
+                        <option>Option 2</option>
+                        <option>Option 3</option>
+                        <option>Option 4</option>
+                        <option>Option 5</option>
+                    </select>
+                
+            </div>
+
+            <div class="card-footer">
+                <div class="row">
+                    <div col-1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+{% endblock  %}
+
+<script>
+$(document).ready(function() {
+
+});
+</script>
