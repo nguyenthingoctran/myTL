@@ -21,14 +21,45 @@
             <div class="card-body">
                 
                     <label>Modern Select</label>
-                    <select class="form-control select2-single" id="select2-1">
-                        <option>Option 1</option>
-                        <option>Option 2</option>
-                        <option>Option 3</option>
-                        <option>Option 4</option>
-                        <option>Option 5</option>
+                    <select class="form-control select2-single" id="hoten">
+                        <option>nguyen</option>
+                        <option>thi</option>
+                        <option>ngoc</option>
+                        <option>tran</option>
+                        <option>xinh</option>
                     </select>
                 
+            </div>
+
+            <div class="card-body">
+                <input id="tags" type="text" name="country">
+                <fieldset class="form-group">
+                    <label>Multiple Select / Tags</label>
+                    <select class="form-control select2-multiple" id="select2-2" multiple="">
+                        <option value = "nguyen">Option 1</option>
+                        <option value = "thi">Option 2</option>
+                        <option value = "ngoc">Option 3</option>
+                        <option value = "tran">Option 4</option>
+                        <option value = "xinh">Option 5</option>
+                    </select>
+                </fieldset>
+            </div>
+
+            <div class="card-body">
+                <div class="input-group mb-2">
+                    <span class="input-group-prepend">
+                        <span class="input-group-text">
+                        <i class="fa fa-calendar"></i>
+                        </span>
+                    </span>
+                    <input class="form-control" name="daterange" type="text" id="daterangepicker"/>
+                </div>  
+                <div class="row">
+                    <div class="col-12">
+                        <input type="text" name="color">
+                    </div>
+                    
+                </div>   
             </div>
 
             <div class="card-footer">
@@ -41,10 +72,42 @@
         </div>
         </div>
     </div>
-{% endblock  %}
-
 <script>
 $(document).ready(function() {
+    $(".bootstrap-tagsinput .tag").css('color','red');
 
+    $('#select2-2').select2({
+        theme: 'bootstrap',
+        placeholder: 'Your Favorite Football Team',
+        allowClear: true
+    });
+
+    $("#select2-2").change(function(){
+        console.log("Selected value is: "+$("#select2-2").val());
+        console.log("Selected: " + $("#hoten").val());
+        console.log("Ngày: " + $("#daterangepicker").val());
+    });
+    
+    $('#hoten').select2({
+        theme: 'bootstrap'
+    });
+
+    $('input[name="daterange"]').daterangepicker({
+        opens: 'center',
+        ranges: {
+            Today: [moment(), moment()],
+            Yesterday: [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+    });
+
+    $('input[name="color"]').amsifySuggestags({
+        type : 'amsify'
+    });
+    
 });
 </script>
+{% endblock  %}
