@@ -13,3 +13,6 @@ def notification(request):
 
 def select2_single(request):
     return render(request, 'demoFrontent/page_select_2.html')
+
+def dragable(request):
+    return render(request, 'demoFrontent/dragable.html')

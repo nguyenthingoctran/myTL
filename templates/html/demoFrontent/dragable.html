@@ -1,0 +1,63 @@
+{% extends "main_layout.html" %}
+
+{% block title %}Demo drapable{% endblock  %}
+
+{% block breadcrumb %}
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">Home</li>
+          <li class="breadcrumb-item">
+            <a href="#">Feature</a>
+          </li>
+          <li class="breadcrumb-item active">Demo drapable</li>
+        </ol>
+{% endblock  %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div class="animated fadeIn">
+        <div class="card">
+            <div class="card-header">
+                <i class="fa fa-edit"></i> Demo drapable
+            </div>
+
+            <div class="card-body">
+                <div dragEvent.source>Try to drag the purple box around.</div>
+                <div id="boxA" >
+                    <p>Drag Me</p>
+                </div>
+                <div id="boxB">Dustbin</div>
+
+            </div>
+
+            <div class="card-footer">
+                <div class="row">
+                    <div col-1>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+    </div>
+
+
+
+<!-- End .card -->
+<script type="text/javascript">
+    $(document).ready(function() {
+
+    } );
+
+
+    function dragStart(ev) {
+        ev.dataTransfer.effectAllowed='move';
+        ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
+        ev.dataTransfer.setDragImage(ev.target,0,0);
+        return true;
+    }
+
+</script>
+
+{% endblock  %}
+

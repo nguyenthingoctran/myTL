@@ -30,7 +30,6 @@
     <link href='{{ static ("/css/bootstrap-tagsinput.css")}}' rel="stylesheet">
     <link href='{{ static ("/css/amsify.suggestags.css")}}' rel="stylesheet">
     <link href='{{ static ("/css/style.css")}}' rel="stylesheet">
-    {% block linkStyle %}{% endblock  %}
     <!-- CSS STYLES -->
     <style>{% block style %}{% endblock  %}</style>
     <!-- CoreUI and necessary plugins-->
@@ -51,6 +50,15 @@
     <script src='{{ static ("/js/jquery.amsify.suggestags.js")}}'></script>
     <script src='{{ static ("/vendors/bootstrap-daterangepicker/js/daterangepicker.js") }}'></script>
     <script src='{{ static ("/js/advanced-forms.js") }}'></script>
+
+    <!-- Plugins draggable -->
+    <script src='{{ static ("/lib/draggable.bundle.js") }}'></script>
+    <script src='{{ static ("/lib/draggable.bundle.legacy.js") }}'></script>
+    <script src='{{ static ("/lib/draggable.js") }}'></script>
+    <script src='{{ static ("/lib/sortable.js") }}'></script>
+    <script src='{{ static ("/lib/droppable.js") }}'></script>
+    <script src='{{ static ("/lib/swappable.js") }}'></script>
+    <script src='{{ static ("/lib/plugins.js") }}'></script>
     <!-- Global site tag (gtag.js) - Google Analytics-->
     <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
     <!-- Data Table -->

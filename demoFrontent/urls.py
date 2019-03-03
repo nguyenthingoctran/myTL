@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^table/demo$', views.list_table),
     url(r'^copy-to-clipboard$', views.copy_to_clipboard),
     url(r'^notification$', views.notification),
-    url(r'^select2-single$', views.select2_single)
+    url(r'^select2-single$', views.select2_single),
+    url(r'^dragable$', views.dragable),
 ]
