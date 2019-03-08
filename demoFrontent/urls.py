@@ -13,4 +13,5 @@ urlpatterns = [
     url(r'^notification$', views.notification),
     url(r'^select2-single$', views.select2_single),
     url(r'^dragable$', views.dragable),
+    url(r'^spinner$', views.spinner),
 ]
