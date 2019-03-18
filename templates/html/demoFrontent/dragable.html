@@ -14,48 +14,34 @@
 
 {% block content %}
 
-    <div class="container-fluid">
-        <div class="animated fadeIn">
-        <div class="card">
-            <div class="card-header">
-                <i class="fa fa-edit"></i> Demo drapable
-            </div>
+<div id="app">
 
-            <div class="card-body">
-                <div dragEvent.source>Try to drag the purple box around.</div>
-                <div id="boxA" >
-                    <p>Drag Me</p>
-                </div>
-                <div id="boxB">Dustbin</div>
-
-            </div>
-
-            <div class="card-footer">
-                <div class="row">
-                    <div col-1>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        </div>
-    </div>
-
-
+</div>
 
 <!-- End .card -->
 <script type="text/javascript">
-    $(document).ready(function() {
-
-    } );
-
-
-    function dragStart(ev) {
-        ev.dataTransfer.effectAllowed='move';
-        ev.dataTransfer.setData("Text", ev.target.getAttribute('id'));
-        ev.dataTransfer.setDragImage(ev.target,0,0);
-        return true;
-    }
+    import React from 'react';
+    var Form = React.createClass({
+        render: function(){
+            return (
+                <div>
+                    <h3>Click the button</h3>
+                    <input type="submit" />
+                </div>
+            );
+        }
+    });
+    var App = React.createClass({
+        render: function(){
+            return (
+                <div>
+                    <h1> Welcome to my app!</h1>
+                    <Form />
+                </div>
+            );
+        }
+    });
+    React.render(<App />,  document.getElementById("app"));
 
 </script>
 
