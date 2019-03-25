@@ -16,5 +16,6 @@ def select2_single(request):
 
 def dragable(request):
     return render(request, 'demoFrontent/dragable.html')
+    
 def spinner(request):
     return render(request, 'demoFrontent/page_spinner.html')
