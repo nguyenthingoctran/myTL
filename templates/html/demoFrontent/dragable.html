@@ -13,27 +13,153 @@
 {% endblock  %}
 
 {% block content %}
-
-<div class="PR_draggable" style="width: 300px; height: 300px; background: yellow">
+<!-- <div style="clear:both"></div>
+<div class="PR_draggable" style="width: 300px; height: 300px; background: yellow; float:left;">
     <div class="mydraggable" style="width: 100px; height: 100px; background: red">
 
     </div>
 </div>
 
+<div id="myDroppable" style="width: 300px; height: 300px; background: green; float:left;"></div>
+<div style="clear:both"></div> -->
+
+
+<!-- ======================================================================== -->
+<!-- ==================== Test draggable - droppable ======================== -->
+<!-- ======================================================================== -->
+
+<div class="container-fluid">
+    <div class="animated fadeIn">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="row ">
+            <div class="col-md-12">
+              <div class="card card-accent-secondary">
+                <div class="card-header ">Drag & Drop Card
+                  <a class="badge badge-danger" href="https://coreui.io/pro/">CoreUI Pro Component</a>
+                </div>
+                <div class="card-body ">
+                    <div class="alert alert-primary drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-danger drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-success drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-warning drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row ">
+            <div class="col-md-12">
+              <div class="card card-accent-success">
+                <div class="card-header">Drag & Drop Card
+                  <a class="badge badge-danger" href="https://coreui.io/pro/">CoreUI Pro Component</a>
+                </div>
+                <div class="card-body ">
+                    <div class="alert alert-primary drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-danger drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-success drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-warning drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="row ">
+            <div class="col-md-12">
+              <div class="card card-accent-info">
+                <div class="card-header">Drag & Drop Card
+                  <a class="badge badge-danger" href="https://coreui.io/pro/">CoreUI Pro Component</a>
+                </div>
+                <div class="card-body ">
+                    <div class="alert alert-primary drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-danger drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-success drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                    <div class="alert alert-warning drag" role="alert">
+                        A simple primary alert—check it out!
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
 <script>
-    $(".mydraggable").draggable({
+    // $(".mydraggable").draggable({
         //containment : "parent",
         //scroll: true,
         //revert : true,
         //helper : "clone",
         //axis : "x",
-        drag : function(){
-            $(this).css('background','green');
-        },
-        stop : function(){
-            $(this).css('background', 'purple');
-        }
-    });
+        // drag : function(){
+        //     $(this).css('background','green');
+        // },
+        // stop : function(){
+        //     $(this).css('background', 'purple');
+        // }
+    // });
+
+    // DROPPABLE
+    // $("#myDroppable").droppable({
+    //     accept: ".mydraggable",
+    //     activate: function (){
+    //         $(this).css('background','blue')
+    //     },
+    //     over: function(){
+    //         $(this).css('background','yellow')
+    //     },
+    //     out: function(){
+    //         $(this).css('background','green')
+    //     },
+    //     drop: function(){
+    //         $(this).css('background','#ccc')
+    //     },
+    //     deactivate: function(){
+    //         $(this).css('background','')
+    //     }
+    // });
+
+    // Active droppable
+    var element = '[class*=card-bo]';
+    var handle = '.alert';
+    var connect = '[class*=card-bo]';
+    $(element).sortable({
+        handle: handle,
+        connectWith: connect,
+        tolerance: 'pointer',
+        forcePlaceholderSize: true,
+        opacity: 0.8,
+        placeholder: 'card-placeholder'
+    }).disableSelection();
+
+
 </script>
 
 {% endblock  %}
