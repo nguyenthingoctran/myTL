@@ -38,7 +38,7 @@
                 <div class="card-header ">Drag & Drop Card
                   <a class="badge badge-danger" href="https://coreui.io/pro/">CoreUI Pro Component</a>
                 </div>
-                <div class="card-body ">
+                <div class="card-body connect-sortable">
                     <div class="alert alert-primary drag" role="alert">
                         A simple primary alert—check it out!
                     </div>
@@ -63,7 +63,7 @@
                 <div class="card-header">Drag & Drop Card
                   <a class="badge badge-danger" href="https://coreui.io/pro/">CoreUI Pro Component</a>
                 </div>
-                <div class="card-body ">
+                <div class="card-body connect-sortable">
                     <div class="alert alert-primary drag" role="alert">
                         A simple primary alert—check it out!
                     </div>
@@ -88,7 +88,7 @@
                 <div class="card-header">Drag & Drop Card
                   <a class="badge badge-danger" href="https://coreui.io/pro/">CoreUI Pro Component</a>
                 </div>
-                <div class="card-body ">
+                <div class="card-body connect-sortable">
                     <div class="alert alert-primary drag" role="alert">
                         A simple primary alert—check it out!
                     </div>
@@ -112,55 +112,19 @@
 
 
 <script>
-    // $(".mydraggable").draggable({
-        //containment : "parent",
-        //scroll: true,
-        //revert : true,
-        //helper : "clone",
-        //axis : "x",
-        // drag : function(){
-        //     $(this).css('background','green');
-        // },
-        // stop : function(){
-        //     $(this).css('background', 'purple');
-        // }
-    // });
-
-    // DROPPABLE
-    // $("#myDroppable").droppable({
-    //     accept: ".mydraggable",
-    //     activate: function (){
-    //         $(this).css('background','blue')
-    //     },
-    //     over: function(){
-    //         $(this).css('background','yellow')
-    //     },
-    //     out: function(){
-    //         $(this).css('background','green')
-    //     },
-    //     drop: function(){
-    //         $(this).css('background','#ccc')
-    //     },
-    //     deactivate: function(){
-    //         $(this).css('background','')
-    //     }
-    // });
-
-    // Active droppable
-    var element = '[class*=card-bo]';
-    var handle = '.alert';
-    var connect = '[class*=card-bo]';
-    $(element).sortable({
-        handle: handle,
-        connectWith: connect,
-        tolerance: 'pointer',
-        forcePlaceholderSize: true,
-        opacity: 0.8,
-        placeholder: 'card-placeholder'
-    }).disableSelection();
-
-
+    // Lấy index của list 
+    $(".card-body").sortable({
+      start : function(){
+        $(this).parent().parent().parent().parent().prevAll().find(".card-body").removeClass('connect-sortable').addClass('no-sort');
+      },
+      sort: function(){
+        $(".card-body").sortable("refresh");
+      },
+      stop: function(){
+        $(this).parent().parent().parent().parent().prevAll().find(".card-body").removeClass('no-sort').addClass('connect-sortable');
+      },
+      connectWith : '.connect-sortable',
+    });
 </script>
 
 {% endblock  %}
-
