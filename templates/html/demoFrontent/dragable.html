@@ -2,6 +2,29 @@
 
 {% block title %}Demo drapable{% endblock  %}
 
+{% block style %}
+
+  .testimonial-group {
+    overflow-x: auto;
+    white-space: nowrap;
+    overflow-y: hidden;
+  }
+  .testimonial-group > .row {
+    display: inline-block;
+    float: none;
+  }
+
+  @media screen and (max-width: 800px) {
+    <!-- .testimonial-group {
+      background: red;
+      height: 200px;
+    } -->
+    body {
+      background-color : blue;
+    }
+  }
+{% endblock  %}
+
 {% block breadcrumb %}
         <ol class="breadcrumb">
           <li class="breadcrumb-item">Home</li>
@@ -13,99 +36,55 @@
 {% endblock  %}
 
 {% block content %}
-<!-- <div style="clear:both"></div>
-<div class="PR_draggable" style="width: 300px; height: 300px; background: yellow; float:left;">
-    <div class="mydraggable" style="width: 100px; height: 100px; background: red">
-
-    </div>
-</div>
-
-<div id="myDroppable" style="width: 300px; height: 300px; background: green; float:left;"></div>
-<div style="clear:both"></div> -->
 
 
 <!-- ======================================================================== -->
 <!-- ==================== Test draggable - droppable ======================== -->
 <!-- ======================================================================== -->
 
-<div class="container-fluid">
-    <div class="animated fadeIn">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="row ">
-            <div class="col-md-12">
-              <div class="card card-accent-secondary">
-                <div class="card-header ">Drag & Drop Card
-                  <a class="badge badge-danger" href="https://coreui.io/pro/">CoreUI Pro Component</a>
-                </div>
-                <div class="card-body connect-sortable">
-                    <div class="alert alert-primary drag" role="alert">
-                        A simple primary alert—check it out!
-                    </div>
-                    <div class="alert alert-danger drag" role="alert">
-                        A simple primary alert—check it out!
-                    </div>
-                    <div class="alert alert-success drag" role="alert">
-                        A simple primary alert—check it out!
-                    </div>
-                    <div class="alert alert-warning drag" role="alert">
-                        A simple primary alert—check it out!
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="row ">
-            <div class="col-md-12">
-              <div class="card card-accent-success">
-                <div class="card-header">Drag & Drop Card
-                  <a class="badge badge-danger" href="https://coreui.io/pro/">CoreUI Pro Component</a>
-                </div>
-                <div class="card-body connect-sortable">
-                    <div class="alert alert-primary drag" role="alert">
-                        A simple primary alert—check it out!
-                    </div>
-                    <div class="alert alert-danger drag" role="alert">
-                        A simple primary alert—check it out!
-                    </div>
-                    <div class="alert alert-success drag" role="alert">
-                        A simple primary alert—check it out!
-                    </div>
-                    <div class="alert alert-warning drag" role="alert">
-                        A simple primary alert—check it out!
-                    </div>
+<div class="container-fluid " style="height : 90%">
+    <div class="animated fadeIn testimonial-group" style="height:750px;">
+      <div class="row" style="height:100%">
+
+        {% for lifecycle in list_lifecycle %}
+          <div class="col-3 d-inline-block" style="height:100%">
+            <div class="row h-100">
+              <div class="col-md-12" style="height: 97%">
+                <div class="card card-accent-info h-100" >
+                  <!-- Header -->
+                  <div class="card-header">{{lifecycle.label}}</div>
+                  <div class="card-body connect-sortable" style="height:100%; overflow: auto">
+                      <div class="alert alert-primary drag" role="alert">
+                          A simple primary alert—check it out!
+                      </div>
+                      <div class="alert alert-danger drag" role="alert">
+                          A simple primary alert—check it out!
+                      </div>
+                      <div class="alert alert-success drag" role="alert">
+                          A simple primary alert—check it out!
+                      </div>
+                      <div class="alert alert-warning drag" role="alert">
+                          A simple primary alert—check it out!
+                      </div>
+                      <div class="alert alert-primary drag" role="alert">
+                          A simple primary alert—check it out!
+                      </div>
+                      <div class="alert alert-danger drag" role="alert">
+                          A simple primary alert—check it out!
+                      </div>
+                      <div class="alert alert-success drag" role="alert">
+                          A simple primary alert—check it out!
+                      </div>
+                      <div class="alert alert-warning drag" role="alert">
+                          A simple primary alert—check it out!
+                      </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="row ">
-            <div class="col-md-12">
-              <div class="card card-accent-info">
-                <div class="card-header">Drag & Drop Card
-                  <a class="badge badge-danger" href="https://coreui.io/pro/">CoreUI Pro Component</a>
-                </div>
-                <div class="card-body connect-sortable">
-                    <div class="alert alert-primary drag" role="alert">
-                        A simple primary alert—check it out!
-                    </div>
-                    <div class="alert alert-danger drag" role="alert">
-                        A simple primary alert—check it out!
-                    </div>
-                    <div class="alert alert-success drag" role="alert">
-                        A simple primary alert—check it out!
-                    </div>
-                    <div class="alert alert-warning drag" role="alert">
-                        A simple primary alert—check it out!
-                    </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+          </div>        
+        {% endfor %}
+
       </div>
     </div>
   </div>
@@ -114,16 +93,18 @@
 <script>
     // Lấy index của list 
     $(".card-body").sortable({
-      start : function(){
-        $(this).parent().parent().parent().parent().prevAll().find(".card-body").removeClass('connect-sortable').addClass('no-sort');
+      start : function(event, ui){
+        $(this).parent().parent().parent().parent().prevAll().find(".card-body").removeClass('connect-sortable').addClass('no-sort').css({'pointer-events':'none','opacity':'0.5'});
+        
       },
-      sort: function(){
+      sort : function(){
         $(".card-body").sortable("refresh");
       },
-      stop: function(){
-        $(this).parent().parent().parent().parent().prevAll().find(".card-body").removeClass('no-sort').addClass('connect-sortable');
+      stop : function(){
+        $(this).parent().parent().parent().parent().prevAll().find(".card-body").removeClass('no-sort').addClass('connect-sortable').css({'pointer-events':'auto','opacity':'1'});
       },
       connectWith : '.connect-sortable',
+      scroll : true,
     });
 </script>
 
