@@ -29,7 +29,7 @@
                   </a>
                 </div>
               </div>
-              <div class="card-body">
+              <div class="card-body" id="div-table-data">
                 <table id="table_data" class="table table-bordered table-hover datatable display nowrap">
                   <thead>
                     <tr>
@@ -598,14 +598,21 @@
 <!-- End .card -->
 <script type="text/javascript">
   $(document).ready(function() {
+
+
     $('#table_data').DataTable( {
       "order": [],
       "scrollX": true,
+      "fixedHeader": true,
       "columnDefs": [ {
         "targets": 'no-sort',
         "orderable": false,
-      } ]
+      } ],
+      "buttons" : [
+        'selectColumns'
+      ],
     } );
+
     $('.card-footer').css("display", "none");
     checked_show_button('checkbox', 'card-footer');
   } );

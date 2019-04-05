@@ -5,7 +5,7 @@
 {% block style %}
 
   .testimonial-group {
-    overflow-x: auto;
+    overflow-x: scroll;
     white-space: nowrap;
     overflow-y: hidden;
   }
@@ -42,7 +42,7 @@
 <!-- ==================== Test draggable - droppable ======================== -->
 <!-- ======================================================================== -->
 
-<div class="container-fluid " style="height : 90%">
+<div id="wrap-all" class="container-fluid" style="height : 90%">
     <div class="animated fadeIn testimonial-group" style="height:750px;">
       <div class="row" style="height:100%">
 
@@ -94,18 +94,44 @@
     // Lấy index của list 
     $(".card-body").sortable({
       start : function(event, ui){
-        $(this).parent().parent().parent().parent().prevAll().find(".card-body").removeClass('connect-sortable').addClass('no-sort').css({'pointer-events':'none','opacity':'0.5'});
         
+        $(this).parent().parent().parent().parent().prevAll().find(".card-body").removeClass('connect-sortable').addClass('no-sort').css({'pointer-events':'none','opacity':'0.5'});        
       },
       sort : function(){
         $(".card-body").sortable("refresh");
+
+        // Tọa độ của mouse
+        
+        $(window).mousemove(function (e) {
+          var x = $(".testimonial-group").innerWidth() - 200,
+              y = $(".testimonial-group").scrollLeft() + 50; 
+          
+          if ($('.alert').offset().left > x) {
+              //Down
+              $('.testimonial-group').animate({
+                  scrollLeft: x // adjust number of px to scroll down
+              }, 600);
+          }else{
+            $('.testimonial-group').animate({
+
+            });      
+          }
+        });
+
+
+
       },
       stop : function(){
         $(this).parent().parent().parent().parent().prevAll().find(".card-body").removeClass('no-sort').addClass('connect-sortable').css({'pointer-events':'auto','opacity':'1'});
       },
       connectWith : '.connect-sortable',
-      scroll : true,
     });
+
+$(document).ready(function(){
+
+});
+
+
 </script>
 
 {% endblock  %}
