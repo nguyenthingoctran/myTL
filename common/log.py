@@ -2,7 +2,7 @@ import os
 import sys
 import logging
 
-from lptool.utils.enum import LoginStatus, AjaxResponseResult  
+from common.enum import LoginStatus, AjaxResponseResult  
 
 def write_log(inst):
     logger = logging.getLogger(__name__)

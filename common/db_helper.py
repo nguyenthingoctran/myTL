@@ -6,7 +6,7 @@ import logging
 import sys
 import os
 
-# from common import log
+from common import log
 
 class db_helper:
 

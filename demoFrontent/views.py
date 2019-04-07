@@ -8,6 +8,9 @@ db_controller = db_helper()
 # Create your views here.
 # SHOW DATA LIST TABLE
 def list_table(request):
+    # Lấy dữ liệu từ database
+    
+
     return render(request, 'demoFrontent/table_demo/list_table.html')
 
 def copy_to_clipboard(request):
