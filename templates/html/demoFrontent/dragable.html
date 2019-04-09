@@ -42,53 +42,20 @@
 <!-- ==================== Test draggable - droppable ======================== -->
 <!-- ======================================================================== -->
 
-<div id="wrap-all" class="container-fluid" style="height : 90%">
-    <div class="animated fadeIn testimonial-group" style="height:750px;">
-      <div class="row" style="height:100%">
+<div class="card mx-4 h-75">
+  <div class="card-header">
+    Draggable
+  </div>
+  <div class="card-body">
+    <!-- Khung chứa mỗi card nhỏ -->
+    <div class="container-fluid">
 
-        {% for lifecycle in list_lifecycle %}
-          <div class="col-3 d-inline-block" style="height:100%">
-            <div class="row h-100">
-              <div class="col-md-12" style="height: 97%">
-                <div class="card card-accent-info h-100" >
-                  <!-- Header -->
-                  <div class="card-header">{{lifecycle.label}}</div>
-                  <div class="card-body connect-sortable" style="height:100%; overflow: auto">
-                      <div class="alert alert-primary drag" role="alert">
-                          A simple primary alert—check it out!
-                      </div>
-                      <div class="alert alert-danger drag" role="alert">
-                          A simple primary alert—check it out!
-                      </div>
-                      <div class="alert alert-success drag" role="alert">
-                          A simple primary alert—check it out!
-                      </div>
-                      <div class="alert alert-warning drag" role="alert">
-                          A simple primary alert—check it out!
-                      </div>
-                      <div class="alert alert-primary drag" role="alert">
-                          A simple primary alert—check it out!
-                      </div>
-                      <div class="alert alert-danger drag" role="alert">
-                          A simple primary alert—check it out!
-                      </div>
-                      <div class="alert alert-success drag" role="alert">
-                          A simple primary alert—check it out!
-                      </div>
-                      <div class="alert alert-warning drag" role="alert">
-                          A simple primary alert—check it out!
-                      </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>        
-        {% endfor %}
-
-      </div>
     </div>
   </div>
-
+  <div class="card-footer text-muted">
+    2 days ago
+  </div>
+</div>
 
 <script>
     // Lấy index của list 
@@ -125,6 +92,7 @@
         $(this).parent().parent().parent().parent().prevAll().find(".card-body").removeClass('no-sort').addClass('connect-sortable').css({'pointer-events':'auto','opacity':'1'});
       },
       connectWith : '.connect-sortable',
+      scroll: false,
     });
 
 $(document).ready(function(){
