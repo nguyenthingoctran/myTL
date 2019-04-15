@@ -41,3 +41,40 @@ def dragable(request):
     
 def spinner(request):
     return render(request, 'demoFrontent/page_spinner.html')
+
+def chart(request):
+    # Lấy list ranking hiển thị người dùng đã setting
+    list_show_ranking = "up11-29,up6-10,up1-5,nochange,down1-5,down6-10,down11-29"
+    split_list_show_ranking = list_show_ranking.split(",")
+
+    list_label_ranking = []
+    for list_show_ranking in split_list_show_ranking:
+        if list_show_ranking == "up100higher":
+            list_label_ranking.append("Up 100 or higher")
+        elif list_show_ranking == "up30-99":
+            list_label_ranking.append("Up 30-99")
+        elif list_show_ranking == "up11-29":
+            list_label_ranking.append("Up 11-29")
+        elif list_show_ranking == "up6-10":
+            list_label_ranking.append("Up 6-10")
+        elif list_show_ranking == "up1-5":
+            list_label_ranking.append("Up 1-5")
+        elif list_show_ranking == "nochange":
+            list_label_ranking.append("No change")
+        elif list_show_ranking == "down1-5":
+            list_label_ranking.append("Down 1-5")
+        elif list_show_ranking == "down6-10":
+            list_label_ranking.append("Down 6-10")
+        elif list_show_ranking == "down11-29":
+            list_label_ranking.append("Down 11-29")
+        elif list_show_ranking == "down100":
+            list_label_ranking.append("Down 100 or higher")
+        
+    data = {
+        'list_label_ranking' : list_label_ranking
+    }
+
+    return render(request, 'demoFrontent/chart.html', data)
+
+def demo(request):
+    return render(request, 'demoFrontent/demo.html')
