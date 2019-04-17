@@ -13,31 +13,57 @@
 {% endblock  %}
 
 {% block content %}
-        <div class="card m-4">
-            <div class="card-header">
-                Demo
-            </div>
-            <div class="card-body">
-                <div class="alert alert-primary" role="alert">
-                    This is a primary alert—check it out!
-                  </div>
-                  <div class="alert alert-secondary" role="alert">
-                    This is a secondary alert—check it out!
-                  </div>
-                  <div class="alert alert-success" role="alert">
-                    This is a success alert—check it out!
-                  </div>
-                  <div class="alert alert-danger" role="alert">
-                    This is a danger alert—check it out!
-                  </div>                
-            </div>
+  <div class="row">
+    <div class="col-6">
+      <div class="card m-4">
+        <div class="card-header">
+            Demo
         </div>
+        <div class="card-body">
+            <div class="alert alert-primary" role="alert">
+                This is a primary alert—check it out!
+              </div>
+              <div class="alert alert-secondary" role="alert">
+                This is a secondary alert—check it out!
+              </div>
+              <div class="alert alert-success" role="alert">
+                This is a success alert—check it out!
+              </div>
+              <div class="alert alert-danger" role="alert">
+                This is a danger alert—check it out!
+              </div>                
+        </div>
+      </div>
+    </div>
+    <div class="col-6">
+      <div class="card m-4">
+        <div class="card-header">
+            Demo
+        </div>
+        <div class="card-body">
+            <div class="alert alert-primary" role="alert">
+                This is a primary alert—check it out!
+              </div>
+              <div class="alert alert-secondary" role="alert">
+                This is a secondary alert—check it out!
+              </div>
+              <div class="alert alert-success" role="alert">
+                This is a success alert—check it out!
+              </div>
+              <div class="alert alert-danger" role="alert">
+                This is a danger alert—check it out!
+              </div>                
+        </div>
+      </div>
+    </div>   
+  </div>
+
 <script>
 $(document).ready(function(){
     $( ".card-body" ).sortable({
-        classes: {
-            "ui-sortable": "highlight"
-        }
+      helper: "clone",
+      connectWith: '.card-body',
+      
     });
 });
 </script>
