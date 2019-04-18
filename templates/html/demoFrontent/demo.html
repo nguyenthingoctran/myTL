@@ -1,5 +1,19 @@
 {% extends "main_layout.html" %}
 
+{%block style_handle%}
+<style>
+  .wrap-all-contact{
+    overflow-x: scroll;
+    white-space: nowrap;
+    /* overflow-y: hidden;   */
+  }
+  .card-body{
+    cursor: pointer;
+  }
+
+</style>
+{%endblock%}
+
 {% block title %}Demo chart{% endblock  %}
 
 {% block breadcrumb %}
@@ -13,56 +27,96 @@
 {% endblock  %}
 
 {% block content %}
-  <div class="row">
-    <div class="col-6">
-      <div class="card m-4">
-        <div class="card-header">
-            Demo
-        </div>
-        <div class="card-body">
-            <div class="alert alert-primary" role="alert">
-                This is a primary alert—check it out!
-              </div>
-              <div class="alert alert-secondary" role="alert">
-                This is a secondary alert—check it out!
-              </div>
-              <div class="alert alert-success" role="alert">
-                This is a success alert—check it out!
-              </div>
-              <div class="alert alert-danger" role="alert">
-                This is a danger alert—check it out!
-              </div>                
-        </div>
+<div class="card m-4 h-75">
+  <div class="card-header">
+    <i class="fa fa-align-justify"></i> <strong>Sales management: </strong>
+  </div>
+  <div class="card-body w-100 float-left">
+    <div class="row mx-1 w-100 float-left" style="overflow: auto;">
+      <div class="wrap-all-contact w-100 float-left">
+        <!-- List marketing -->
+        {% for key_marketing, value_marketing in dict_contact_marketing.items() %}
+          <div id="card-management" class="card card-accent-primary ml-1 d-inline-flex" style="width:270px;">
+            <div class="card-header">Marketing ({{value_marketing.label}})</div>
+            <div class="card-body p-1 card-draggable " style="width:100%; height: 400px; overflow-y: scroll">
+              {% for contact in value_marketing.list_contact %}
+                <div class="card card-accent-secondary mx-1 mb-2 drapdemo" >
+                  <div class="card-body position-relative" style="white-space: normal;">
+                    <!-- Thông tin contact -->
+                    <div class="contact-content">
+                      <span class="text-primary">{{contact.company}}: {{contact.firstname}} {{contact.lastname}} nguyen thi ngoc tran</span>
+                      <br/>
+                      <span>Close day: 123</span>
+                    </div>
+                    <!-- Các nút action cho contact -->
+                    <div class="contact-action position-absolute" style="top: 7px; left: 210px">
+                        <i class="icons cui-options" data-vid="{{contact.vid}}" data-toggle="modal" data-target="#modalContactDetail"></i>                      
+                    </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="card-footer">Price: </div>
+          </div>
+        {% endfor %}
+        <!-- List sales -->
+        {% for key_sale, value_sale in dict_contact_sales.items() %}
+          <div id="card-sales" class="card ml-1 card-accent-warning d-inline-flex" style="width:270px;">
+            <div class="card-header">Sales ({{value_sale.label}})</div>
+            <div class="card-body p-1 card-draggable" style="height: 400px; overflow-y: scroll">
+              {% for contact in value_sale.list_contact %}
+                <div class="card card-accent-secondary mx-1 mb-2 drapdemo">
+                  <div class="card-body" style="white-space: normal;">
+                      <div class="contact-content">
+                          <span class="text-primary">{{contact.company}}: {{contact.firstname}} {{contact.lastname}} nguyen thi ngoc tran</span>
+                          <br/>
+                          <span>Close day: 123</span>
+                        </div>
+                        <!-- Các nút action cho contact -->
+                        <div class="contact-action position-absolute" style="top: 7px; left: 210px">
+                            <i class="icons cui-options" data-vid="{{contact.vid}}" data-toggle="modal" data-target="#modalContactDetail"></i>                      
+                        </div>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            <div class="card-footer">Price: </div>
+          </div>
+        {% endfor %}
       </div>
     </div>
-    <div class="col-6">
-      <div class="card m-4">
-        <div class="card-header">
-            Demo
-        </div>
-        <div class="card-body">
-            <div class="alert alert-primary" role="alert">
-                This is a primary alert—check it out!
-              </div>
-              <div class="alert alert-secondary" role="alert">
-                This is a secondary alert—check it out!
-              </div>
-              <div class="alert alert-success" role="alert">
-                This is a success alert—check it out!
-              </div>
-              <div class="alert alert-danger" role="alert">
-                This is a danger alert—check it out!
-              </div>                
-        </div>
-      </div>
-    </div>   
   </div>
+
+  <!-- Input hidden để lấy dữ liệu -->
+  <input type="hidden" id="site_id" value="">
+
+
+</div>
 
 <script>
 $(document).ready(function(){
-    $( ".card-body" ).sortable({
-      helper: "clone",
-      connectWith: '.card-body',
+    $( ".card-draggable" ).sortable({
+      connectWith: '.card-draggable',
+      
+    });
+
+    // $(window).mousemove(function (e) {
+    //       var x = $(".card-draggable").innerWidth(),
+    //           y = $(".card-draggable").scrollLeft() + 50; 
+    //           console.log(x)
+          
+    //       if ($('.drapdemo').offset().left > x) {
+    //           //Down
+    //           window.scrollBy(0,10)
+    //       }else{
+    //         $('.card-draggable').animate({
+
+    //         });      
+    //       }
+    // });
+    var wrapperWith = $(".wrap-all-contact").width();
+    console.log(wrapperWith);
+    $('.wrap-all-contact').mousemove(function(event){
       
     });
 });

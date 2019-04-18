@@ -77,4 +77,142 @@ def chart(request):
     return render(request, 'demoFrontent/chart.html', data)
 
 def demo(request):
-    return render(request, 'demoFrontent/demo.html')
+    dict_contact_marketing = {
+        'subsrciber' : {
+            'label' : 'Subsrciber',
+            'list_contact' : [
+                {
+                    'vid' : '1',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '2',
+                    'company' : 'Makudu1',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '3',
+                    'company' : 'Makudu2',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+            ]
+        },
+        'lead' : {
+            'label' : 'Lead',
+            'list_contact' : [
+                {
+                    'vid' : '4',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '5',
+                    'company' : 'Makudu1',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '5',
+                    'company' : 'Makudu2',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+            ]
+        },
+        'marketingqualifiedlead' : {
+            'label' : 'MQL',
+            'list_contact' : [
+                {
+                    'vid' : '1',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                }
+            ]
+        }
+    }
+
+    dict_contact_sales = {
+        'subsrciber' : {
+            'label' : 'Subsrciber',
+            'list_contact' : [
+                {
+                    'vid' : '1',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '2',
+                    'company' : 'Makudu1',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '3',
+                    'company' : 'Makudu2',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+            ]
+        },
+        'lead' : {
+            'label' : 'Lead',
+            'list_contact' : [
+                {
+                    'vid' : '4',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '5',
+                    'company' : 'Makudu1',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '5',
+                    'company' : 'Makudu2',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+            ]
+        },
+        'marketingqualifiedlead' : {
+            'label' : 'MQL',
+            'list_contact' : [
+                {
+                    'vid' : '1',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                }
+            ]
+        }
+    }
+
+    data = {
+        'dict_contact_marketing' : dict_contact_marketing,
+        'dict_contact_sales' : dict_contact_sales
+    }
+    return render(request, 'demoFrontent/demo.html', data)
