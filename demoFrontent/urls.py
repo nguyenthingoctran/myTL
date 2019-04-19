@@ -16,4 +16,6 @@ urlpatterns = [
     url(r'^dragable$', views.dragable),
     url(r'^spinner$', views.spinner),
     url(r'^chart$', views.chart),
+    url(r'^demo-sales-setting$', views.demo_sales_setting),
+    url(r'^ajax-get-form-sale-setting$', views.ajax_get_form_sale_setting),
 ]

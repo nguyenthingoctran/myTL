@@ -59,7 +59,17 @@
                         <input type="text" name="color">
                     </div>
                     
-                </div>   
+                </div>  
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                    </div>
+                    <select class="custom-select select2-single" id="select2-demo">
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                </div> 
             </div>
 
             <div class="card-footer">
@@ -80,6 +90,11 @@ $(document).ready(function() {
         theme: 'bootstrap',
         placeholder: 'Your Favorite Football Team',
         allowClear: true
+    });
+
+    $('#select2-demo').select2({
+        theme: 'bootstrap',
+        placeholder: 'Your Favorite Football Team',
     });
 
     $("#select2-2").change(function(){

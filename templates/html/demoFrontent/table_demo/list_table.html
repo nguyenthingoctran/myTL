@@ -22,7 +22,7 @@
           <div class="animated fadeIn">
             <div class="card">
               <div class="card-header">
-                <i class="fa fa-edit"></i> DataTables
+                <i class="fa fa-edit" data-toggle="modal" data-target="#ModalSetting"></i> DataTables
                 <div class="card-header-actions">
                   <a class="card-header-action" href="https://datatables.net" target="_blank">
                     <small class="text-muted">docs</small>
@@ -594,7 +594,30 @@
             </div>
           </div>
         </div>
-
+  <!-- Popup setting -->
+  <div class="modal fade" id="ModalSetting" role="dialog" aria-labelledby="ModalSetting" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title">Sales setting</h4>
+            <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">×</span>
+            </button>
+          </div>
+          <div id="modalSettingFormBody" class="modal-body">
+             <!-- Đổ dữ liệu vào đây -->
+          </div>
+          <div class="modal-footer">
+            <button onclick="update_settings();" class="btn btn-sm btn-primary" type="button">
+            <i class="fa fa-save"></i> Save</button>
+            <button class="btn btn-sm btn-secondary" type="button" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+        <!-- /.modal-content-->
+      </div>
+      <!-- /.modal-dialog-->
+    </div>
+    <!-- /.modal-->
 <!-- End .card -->
 <script type="text/javascript">
   $(document).ready(function() {

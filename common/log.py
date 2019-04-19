@@ -2,9 +2,14 @@ import os
 import sys
 import logging
 
-from common.enum import LoginStatus, AjaxResponseResult  
+from enum import Enum
 
-def write_log(inst):
+class AjaxResponseResult(Enum):
+  success = 1
+  error   = 0
+
+class Log:
+  def write_log(self,inst):
     logger = logging.getLogger(__name__)
     #1. Trường hợp là hàm Ajax thì trả về giá trị AjaxResponseResult = -1
     result = AjaxResponseResult.error.value

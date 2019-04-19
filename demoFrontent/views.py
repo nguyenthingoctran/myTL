@@ -2,6 +2,9 @@ from django.shortcuts import render
 from common.get_data import hubspot_api
 from common.db_helper import db_helper
 from pprint import pprint
+from django.http import HttpResponse,JsonResponse
+from common.log import Log
+
 
 db_controller = db_helper()
 
@@ -9,8 +12,6 @@ db_controller = db_helper()
 # SHOW DATA LIST TABLE
 def list_table(request):
     # Lấy dữ liệu từ database
-    
-
     return render(request, 'demoFrontent/table_demo/list_table.html')
 
 def copy_to_clipboard(request):
@@ -216,3 +217,20 @@ def demo(request):
         'dict_contact_sales' : dict_contact_sales
     }
     return render(request, 'demoFrontent/demo.html', data)
+
+def demo_sales_setting(request):
+    return render(request, 'demoFrontent/demo_sells_setting.html')
+
+def ajax_get_form_sale_setting(request):
+  if request.method == 'POST':
+
+    if request.is_ajax():
+      try:
+        #1)Lấy dữ liệu từ request
+        return render(request, 'demoFrontent/data/data_sale_setting.html')
+
+      except Exception as inst:
+        result = Log.write_log(inst)
+        return HttpResponse(result)
+        
+    return HttpResponse('')

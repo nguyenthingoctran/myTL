@@ -30,6 +30,7 @@
 <div class="card m-4 h-75">
   <div class="card-header">
     <i class="fa fa-align-justify"></i> <strong>Sales management: </strong>
+    <i class="fa fa-cog fa-lg font-2xl float-right p-0 m-0 text-secondary" data-toggle="modal" data-target="#ModalSetting"></i>
   </div>
   <div class="card-body w-100 float-left">
     <div class="row mx-1 w-100 float-left" style="overflow: auto;">
@@ -74,7 +75,7 @@
                         </div>
                         <!-- Các nút action cho contact -->
                         <div class="contact-action position-absolute" style="top: 7px; left: 210px">
-                            <i class="icons cui-options" data-vid="{{contact.vid}}" data-toggle="modal" data-target="#modalContactDetail"></i>                      
+                            <i class="icons cui-options" data-vid="{{contact.vid}}"></i>                      
                         </div>
                   </div>
                 </div>
@@ -87,6 +88,31 @@
     </div>
   </div>
 
+  <!-- Popup setting -->
+  <div class="modal fade" id="ModalSetting" role="dialog" aria-labelledby="ModalSetting" aria-hidden="true">
+   <div class="modal-dialog modal-lg" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h4 class="modal-title">Sales setting</h4>
+         <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">×</span>
+         </button>
+       </div>
+       <div id="modalSettingFormBody" class="modal-body">
+          <!-- Đổ dữ liệu vào đây -->
+       </div>
+       <div class="modal-footer">
+         <button onclick="update_settings();" class="btn btn-sm btn-primary" type="button">
+         <i class="fa fa-save"></i> Save</button>
+         <button class="btn btn-sm btn-secondary" type="button" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+     <!-- /.modal-content-->
+   </div>
+   <!-- /.modal-dialog-->
+ </div>
+ <!-- /.modal-->
+ 
   <!-- Input hidden để lấy dữ liệu -->
   <input type="hidden" id="site_id" value="">
 
@@ -100,6 +126,25 @@ $(document).ready(function(){
       
     });
 
+    $('#ModalSetting').on('shown.bs.modal', function (e) {
+      $.ajax({
+            type: "POST",
+            url: "/home/ajax-get-form-sale-setting",
+            dataType: "html",
+            data: { 
+              'csrfmiddlewaretoken': '{{ csrf_token }}',
+            },
+            success: function (response) {
+              if (response == 0){
+
+              }else{
+                $("#modalSettingFormBody").html(response);
+              }
+            },
+            error: function (xhr, status, e) {
+            }
+      });
+    });
     // $(window).mousemove(function (e) {
     //       var x = $(".card-draggable").innerWidth(),
     //           y = $(".card-draggable").scrollLeft() + 50; 
@@ -114,11 +159,11 @@ $(document).ready(function(){
     //         });      
     //       }
     // });
-    var wrapperWith = $(".wrap-all-contact").width();
-    console.log(wrapperWith);
-    $('.wrap-all-contact').mousemove(function(event){
+    // var wrapperWith = $(".wrap-all-contact").width();
+    // console.log(wrapperWith);
+    // $('.wrap-all-contact').mousemove(function(event){
       
-    });
+    // });
 });
 </script>
 {% endblock %}
