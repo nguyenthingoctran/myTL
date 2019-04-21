@@ -209,7 +209,112 @@ def demo(request):
                     'closedate' : '2019-02-01'
                 }
             ]
+        },
+        'whatever1' : {
+            'label' : 'Whatever 1',
+            'list_contact' : [
+                {
+                    'vid' : '1',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '2',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '3',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+            ]
+        },
+        'whatever2' : {
+            'label' : 'Whatever 2',
+            'list_contact' : [
+                {
+                    'vid' : '1',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '2',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '3',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+            ]
+        },
+        'whatever3' : {
+            'label' : 'Whatever 3',
+            'list_contact' : [
+                {
+                    'vid' : '1',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '2',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '3',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+            ]
+        },
+        'whatever4' : {
+            'label' : 'Whatever 4',
+            'list_contact' : [
+                {
+                    'vid' : '1',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '2',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+                {
+                    'vid' : '3',
+                    'company' : 'Makudu',
+                    'firstname' : 'Trina',
+                    'lastname' : 'Foo2',
+                    'closedate' : '2019-02-01'
+                },
+            ]
         }
+
     }
 
     data = {

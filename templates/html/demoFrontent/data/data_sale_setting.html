@@ -35,7 +35,7 @@
     <div class="col-6">
         <div class="card">
           <div class="card-header">Sales</div>
-          <div class="card-body">
+          <div class="card-body" id="sales">
             <div class="input-group mb-3">
               <div class="input-group-prepend">
                   <div class="input-group-text">
@@ -45,7 +45,7 @@
                 <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="Sales Qualified Lead">
               <div class="input-group-append">
                 <span class="input-group-text"><i class="fa fa-pencil-square-o" title="Edit"></i></span>
-                <span class="input-group-text"><i class="fa fa-trash-o" title="Delete"></i></span>
+                <span class="input-group-text" onclick="del_properties(this);"><i class="fa fa-trash-o" title="Delete"></i></span>
                 <span class="input-group-text"><i class="nav-icon icon-cursor-move" title="Move"></i></span>
               </div>
             </div>
@@ -59,11 +59,14 @@
                   <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="Sales Qualified Lead">
                 <div class="input-group-append">
                   <span class="input-group-text"><i class="fa fa-pencil-square-o" title="Edit"></i></span>
-                  <span class="input-group-text"><i class="fa fa-trash-o" title="Delete"></i></span>
+                  <span class="input-group-text" onclick="del_properties(this);"><i class="fa fa-trash-o" title="Delete"></i></span>
                   <span class="input-group-text"><i class="nav-icon icon-cursor-move" title="Move"></i></span>
                 </div>
-              </div>
+            </div>
 
+          </div>
+          <div class="card-footer">
+            <button type="button" name="" id="add-pro-id" class="btn btn-primary" onclick="add_properties();">Add</button>
           </div>
         </div>
 
@@ -72,6 +75,28 @@
 
 <script>
 $(document).ready(function(){
-
 });
+
+function add_properties(){
+  var form_add = 
+  '<div class="input-group mb-3">'+
+      '<div class="input-group-prepend">'+
+          '<div class="input-group-text">'+
+            '<input type="checkbox" aria-label="Checkbox for following text input" checked disabled>'+
+          '</div>'+
+      '</div>'+
+        '<input type="text" class="form-control" aria-label="Amount (to the nearest dollar)" value="Sales Qualified Lead">'+
+      '<div class="input-group-append">'+
+        '<span class="input-group-text"><i class="fa fa-pencil-square-o" title="Edit"></i></span>'+
+        '<span class="input-group-text" onclick="del_properties(this);"><i class="fa fa-trash-o" title="Delete"></i></span>'+
+        '<span class="input-group-text"><i class="nav-icon icon-cursor-move" title="Move"></i></span>'+
+      '</div>'+
+  '</div>'
+  $("#sales").append(form_add);
+}
+
+function del_properties(e){
+  $(e).remove();
+}
+
 </script>
