@@ -138,7 +138,7 @@ $(document).ready(function(){
         // Lấy tọa độ x của con trỏ chuột hiện đang di chuyển
         var x = event.pageX
         var div = $(".wrap-all-contact")
-        if (x >= height_container){
+        if (x > height_container){
           var pos = div.scrollLeft();
           div.scrollLeft(pos + 10);  
         }else if(x < height_container/3){
@@ -168,22 +168,23 @@ $(document).ready(function(){
             }
       });
     });
-    // $(window).mousemove(function (e) {
-    //       var x = $(".card-draggable").innerWidth(),
-    //           y = $(".card-draggable").scrollLeft() + 50; 
-    //           console.log(x)
-          
-    //       if ($('.drapdemo').offset().left > x) {
-    //           //Down
-    //           window.scrollBy(0,10)
-    //       }else{
-    //         $('.card-draggable').animate({
-
-    //         });      
-    //       }
-    // });
-
-
 });
+
+function update_settings(){
+  var string_marketing_properties = ''
+  var marketing_properties = $(".marketing input[type='checkbox']").map(function(){
+    // Lấy dữ liệu label
+    var label = $(this).data('label');
+    // Lấy dữ liệu is_show
+    if ($(this).is(':checked')){
+      var is_show = 1;
+    }else{
+      var is_show = 0;
+    }
+    string_marketing_properties = string_marketing_properties + label +'@@'+ is_show.toString() + '|'
+    console.log(string_marketing_properties)
+  });
+  
+}
 </script>
 {% endblock %}
