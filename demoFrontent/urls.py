@@ -18,4 +18,5 @@ urlpatterns = [
     url(r'^chart$', views.chart),
     url(r'^demo-sales-setting$', views.demo_sales_setting),
     url(r'^ajax-get-form-sale-setting$', views.ajax_get_form_sale_setting),
+    url(r'^contact/ajax-refresh-list-Oracle$', views.ajax_refresh_list_Oracle, name='ajax_refresh_list_Oracle'),
 ]

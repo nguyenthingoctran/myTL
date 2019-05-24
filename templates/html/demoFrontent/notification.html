@@ -1,37 +1,24 @@
-{% extends "main_layout.html" %}
+<html>
+  <head>
+      <title>Notification HTML5</title>
+      <link href='{{ static ("/vendors/@coreui/icons/css/coreui-icons.min.css") }}' rel="stylesheet">
+      <script src='{{ static ("/vendors/jquery/js/jquery.min.js") }}'></script>
+      <script src='{{ static ("/js/build/common-v001.js") }}?v=28'></script>
 
-{% block breadcrumb %}
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item">Home</li>
-          <li class="breadcrumb-item">
-            <a href="#">Feature</a>
-          </li>
-          <li class="breadcrumb-item active">Notification</li>
-        </ol>
-{% endblock  %}
+      <script>
+      $(document).ready(function(){
+          var body = $("#body-notification").val();
+          var url = $("#url-notification").val();
+          show_notification(body, url);
+      });
+      </script>
 
-{% block content %}
-    <div class="container-fluid">
-        <div class="animated fadeIn">
-        <div class="card">
-            <div class="card-header">
-                <i class="fa fa-edit"></i> Notification
-            </div>
-
-            <div class="card-body">
-                
-            </div>
-
-            <div class="card-footer">
-                <div class="row">
-                    <div col-1>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-        </div>
-    </div>
+  </head>
+  <body>
+      <input type="hidden" id="body-notification" value="{{body}}">
+      <input type="hidden" id="url-notification" value="{{url}}">
+  </body>
+</html>
 
 <script type="text/javascript">
 		function show_notification(body, url){
@@ -79,4 +66,3 @@
 		  }
 		}
 </script>
-{% endblock  %}

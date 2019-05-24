@@ -335,7 +335,17 @@ def ajax_get_form_sale_setting(request):
         return render(request, 'demoFrontent/data/data_sale_setting.html')
 
       except Exception as inst:
-        result = Log.write_log(inst)
+        result = Log().write_log(inst)
         return HttpResponse(result)
         
     return HttpResponse('')
+
+
+def ajax_refresh_list_Oracle(request):
+    body = "You have a new contact from [Oracle]テリトリー週次"
+    url = 'https://local.leadplus.net/report/contact'
+    data = {
+    'body' : body,
+    'url' : url
+    }
+    return render(request, "demoFrontent/notification.html", data)
