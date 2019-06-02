@@ -141,6 +141,7 @@ $(document).ready(function(){
         if (x > height_container){
           var pos = div.scrollLeft();
           div.scrollLeft(pos + 10);  
+          $(event).css({left:event.pageX, top:event.pageY});
         }else if(x < height_container/3){
           var pos = div.scrollLeft();
           div.scrollLeft(pos - 10); 
