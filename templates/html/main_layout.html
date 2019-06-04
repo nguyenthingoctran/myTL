@@ -30,6 +30,8 @@
     <link href='{{ static ("/css/bootstrap-tagsinput.css")}}' rel="stylesheet">
     <link href='{{ static ("/css/amsify.suggestags.css")}}' rel="stylesheet">
     <link href='{{ static ("/vendors/spinkit/css/spinkit.css") }}' rel="stylesheet">
+    <link href='{{ static ("/css/infinite-scroller.css")}}' rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="jquery.hoverscroll-0.1.0.css" />
     <link href='{{ static ("/css/style.css")}}' rel="stylesheet">
     <!-- CSS STYLES -->
     {%block style_handle%}{%endblock%}
@@ -66,6 +68,7 @@
     <!-- End React -->
 
     <!-- Plugins draggable -->
+    <script type="text/javascript" src="jquery.hoverscroll-0.1.0.js"></script>
     <script src='{{ static ("/lib/draggable.bundle.js") }}'></script>
     <script src='{{ static ("/lib/draggable.bundle.legacy.js") }}'></script>
     <script src='{{ static ("/lib/draggable.js") }}'></script>
@@ -74,8 +77,9 @@
     <script src='{{ static ("/lib/swappable.js") }}'></script>
     <script src='{{ static ("/lib/plugins.js") }}'></script>
     <!-- Global site tag (gtag.js) - Google Analytics-->
-    <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script>
+    <!-- <script async="" src="https://www.googletagmanager.com/gtag/js?id=UA-118965717-3"></script> -->
     <!-- Data Table -->
+    <script src='{{ static ("/js/infinite-scroller.js") }}'></script>
     <script src='{{ static ("/js/common.js") }}'></script>
     {% block script %}{% endblock  %}
     <script>

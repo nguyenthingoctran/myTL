@@ -131,24 +131,26 @@ $(document).ready(function(){
       tolerance: "pointer",
       helper:'original',
       sort: function(event, ui){
-
-        // Lấy tọa độ của container lớn (chứa marketing và cả sales)
+        var $item = $(ui.item[0]);
+        //======= Lấy tọa độ của container lớn (chứa marketing và cả sales)
         var height_container = $(".wrap-all-contact").width();
 
-        // Lấy tọa độ x của con trỏ chuột hiện đang di chuyển
+        //======= Lấy tọa độ x của con trỏ chuột hiện đang di chuyển
         var x = event.pageX
         var div = $(".wrap-all-contact")
         if (x > height_container){
+          $item.css({'position': 'fixed', 'top':'100px', 'left':'100px'});
+          $item.offset({left: event.pageX, top: event.pageY});
           var pos = div.scrollLeft();
           div.scrollLeft(pos + 10);  
-          $(event).css({left:event.pageX, top:event.pageY});
         }else if(x < height_container/3){
+          $item.css({'position': 'fixed', 'top':'100px', 'left':'100px'});
+          $item.offset({left: event.pageX, top: event.pageY});
           var pos = div.scrollLeft();
           div.scrollLeft(pos - 10); 
         }
         
       },
-
     }).disableSelection();
 
     $('#ModalSetting').on('shown.bs.modal', function (e) {
