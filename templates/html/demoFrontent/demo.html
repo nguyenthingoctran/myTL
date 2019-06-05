@@ -37,7 +37,7 @@
       <div class="wrap-all-contact w-100 float-left">
         <!-- List marketing -->
         {% for key_marketing, value_marketing in dict_contact_marketing.items() %}
-          <div id="card-management" class="card card-accent-primary ml-1 d-inline-flex" style="width:270px;">
+          <div id="card-management" class="card card-accent-primary ml-1 d-inline-flex" style="width:270px; position: relative;">
             <div class="card-header">Marketing ({{value_marketing.label}})</div>
             <div class="card-body p-1 card-draggable " style="width:100%; height: 400px; overflow-y: scroll">
               {% for contact in value_marketing.list_contact %}
@@ -66,7 +66,7 @@
             <div class="card-header">Sales ({{value_sale.label}})</div>
             <div class="card-body p-1 card-draggable" style="height: 400px; overflow-y: scroll">
               {% for contact in value_sale.list_contact %}
-                <div class="card card-accent-secondary m-1 drapdemo">
+                <div class="card card-accent-secondary m-1 drapdemo" style="position: relative;">
                   <div class="card-body" style="white-space: normal;">
                       <div class="contact-content">
                           <span class="text-primary">{{contact.company}}: {{contact.firstname}} {{contact.lastname}} nguyen thi ngoc tran</span>
@@ -139,12 +139,12 @@ $(document).ready(function(){
         var x = event.pageX
         var div = $(".wrap-all-contact")
         if (x > height_container){
-          $item.css({'position': 'fixed', 'top':'100px', 'left':'100px'});
+          $item.css('position', 'absoluted');
           $item.offset({left: event.pageX, top: event.pageY});
           var pos = div.scrollLeft();
           div.scrollLeft(pos + 10);  
         }else if(x < height_container/3){
-          $item.css({'position': 'fixed', 'top':'100px', 'left':'100px'});
+          $item.css('position', 'relative');
           $item.offset({left: event.pageX, top: event.pageY});
           var pos = div.scrollLeft();
           div.scrollLeft(pos - 10); 
