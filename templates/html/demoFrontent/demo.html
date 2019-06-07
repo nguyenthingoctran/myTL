@@ -33,13 +33,13 @@
     <i class="fa fa-cog fa-lg font-2xl float-right p-0 m-0 text-secondary" data-toggle="modal" data-target="#ModalSetting"></i>
   </div>
   <div class="card-body w-100 float-left">
-    <div class="row mx-1 w-100 float-left" style="overflow: auto;">
+    <div class="row mx-1 w-100 float-left">
       <div class="wrap-all-contact w-100 float-left">
         <!-- List marketing -->
         {% for key_marketing, value_marketing in dict_contact_marketing.items() %}
           <div id="card-management" class="card card-accent-primary ml-1 d-inline-flex" style="width:270px; position: relative;">
             <div class="card-header">Marketing ({{value_marketing.label}})</div>
-            <div class="card-body p-1 card-draggable " style="width:100%; height: 400px; overflow-y: scroll">
+            <div class="card-body p-1 card-draggable " style="width:100%; height: 400px; overflow-y: hidden">
               {% for contact in value_marketing.list_contact %}
                 <div class="card card-accent-secondary m-1 drapdemo" >
                   <div class="card-body position-relative" style="white-space: normal;">
@@ -64,7 +64,7 @@
         {% for key_sale, value_sale in dict_contact_sales.items() %}
           <div id="card-sales" class="card ml-1 card-accent-warning d-inline-flex" style="width:270px;">
             <div class="card-header">Sales ({{value_sale.label}})</div>
-            <div class="card-body p-1 card-draggable" style="height: 400px; overflow-y: scroll">
+            <div class="card-body p-1 card-draggable" style="height: 400px; overflow-y: hidden">
               {% for contact in value_sale.list_contact %}
                 <div class="card card-accent-secondary m-1 drapdemo" style="position: relative;">
                   <div class="card-body" style="white-space: normal;">
@@ -120,6 +120,13 @@
 </div>
 
 <script>
+$(".card-draggable").mouseover(function(){
+  $(this).css('overflow-y','scroll');
+});
+$(".card-draggable").mouseout(function(){
+  $(this).css('overflow-y','hidden');
+});
+
 $(document).ready(function(){
     $( ".card-draggable" ).sortable({
       connectWith: '.card-draggable',
@@ -139,12 +146,12 @@ $(document).ready(function(){
         var x = event.pageX
         var div = $(".wrap-all-contact")
         if (x > height_container){
-          $item.css('position', 'absoluted');
+          $item.css('position', 'fixed');
           $item.offset({left: event.pageX, top: event.pageY});
           var pos = div.scrollLeft();
           div.scrollLeft(pos + 10);  
         }else if(x < height_container/3){
-          $item.css('position', 'relative');
+          $item.css('position', 'fixed');
           $item.offset({left: event.pageX, top: event.pageY});
           var pos = div.scrollLeft();
           div.scrollLeft(pos - 10); 
